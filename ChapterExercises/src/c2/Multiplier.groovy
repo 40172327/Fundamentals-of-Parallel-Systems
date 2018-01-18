@@ -13,6 +13,10 @@ class Multiplier implements CSProcess {
     while (i > 0) {
       // write i * factor to outChannel
       // read in the next value of i
+		def num = i * factor
+		outChannel.write(num)
+		i = inChannel.read()
+		
     }
     outChannel.write(i)
   }
