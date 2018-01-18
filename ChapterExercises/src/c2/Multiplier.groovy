@@ -6,7 +6,7 @@ class Multiplier implements CSProcess {
   
   def ChannelOutput outChannel
   def ChannelInput inChannel
-  def int factor = 2
+  def int factor
   
   void run() {
     def i = inChannel.read()
