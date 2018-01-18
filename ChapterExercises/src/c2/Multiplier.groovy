@@ -15,8 +15,7 @@ class Multiplier implements CSProcess {
       // read in the next value of i
 		def num = i * factor
 		outChannel.write(num)
-		i = inChannel.read()
-		
+		i = inChannel.read()	
     }
     outChannel.write(i)
   }

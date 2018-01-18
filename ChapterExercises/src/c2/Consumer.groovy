@@ -14,10 +14,8 @@ class Consumer implements CSProcess {
     while ( i > 0 ) {
       //insert a modified println statement
       i = inChannel.read()
-	  println i
-	  
+	  println i 
     }
-	
     println "Finished"
   }
 }
