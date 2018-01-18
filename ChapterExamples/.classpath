@@ -4,9 +4,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
-	<classpathentry kind="lib" path="//napier-mail.napier.ac.uk/students/School of Computing/User Data/40172327/My Profile/Desktop/PARALLEL SYSTEMS/jcsp-groovyJCSP-18092017/jcsp-groovyJCSP-18092017/groovyJCSP-18092017.jar"/>
-	<classpathentry kind="lib" path="//napier-mail.napier.ac.uk/students/School of Computing/User Data/40172327/My Profile/Desktop/PARALLEL SYSTEMS/jcsp-groovyJCSP-18092017/jcsp-groovyJCSP-18092017/jcsp18092017.jar"/>
-	<classpathentry kind="lib" path="//napier-mail.napier.ac.uk/students/School of Computing/User Data/40172327/My Profile/Desktop/PARALLEL SYSTEMS/jcsp-groovyJCSP-18092017/jcsp-groovyJCSP-18092017/junit.jar"/>
-	<classpathentry kind="lib" path="//napier-mail.napier.ac.uk/students/School of Computing/User Data/40172327/My Profile/Desktop/PARALLEL SYSTEMS/jcsp-groovyJCSP-18092017/jcsp-groovyJCSP-18092017/phwclasses.jar"/>
+	<classpathentry kind="lib" path="/Users/lorenzodalberto/Desktop/Parallel/jcsp-groovyJCSP-18092017/groovyJCSP-18092017.jar"/>
+	<classpathentry kind="lib" path="/Users/lorenzodalberto/Desktop/Parallel/jcsp-groovyJCSP-18092017/jcsp18092017.jar"/>
+	<classpathentry kind="lib" path="/Users/lorenzodalberto/Desktop/Parallel/jcsp-groovyJCSP-18092017/junit.jar"/>
+	<classpathentry kind="lib" path="/Users/lorenzodalberto/Desktop/Parallel/jcsp-groovyJCSP-18092017/phwclasses.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
