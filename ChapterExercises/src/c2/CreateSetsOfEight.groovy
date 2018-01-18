@@ -7,13 +7,17 @@ class CreateSetsOfEight implements CSProcess{
 	def ChannelInput inChannel
 
 	void run(){
-		def outList = []
+		
 		def v = inChannel.read()
 		while (v != -1){
+			def outList = []
 			for ( i in 0 .. 7 ) {
 				// put v into outList and read next input
+				
+				outList.add(v)
+				v = inChannel.read()	
 			}
-			println " Eight Object is ${outList}"
+			println " Eight Object is ${outList}"	
 		}
 		println "Finished"
 	}
