@@ -12,7 +12,7 @@ class ProduceHN implements CSProcess {
   def ChannelOutput outChannel
   
   void run() {
-    def hi = "Hello monkey"
+    def hi = "Hello monkey honey"
     def thing = Ask.string ("\nName ? ")
     outChannel.write ( hi )
     outChannel.write ( thing )   
