@@ -13,6 +13,10 @@ class GSCopy implements CSProcess {
      while (true) {
       def i = inChannel.read()
       // output the input value in sequence to each output channel
+	  outChannel0.write(i)
+	  outChannel1.write(i)
+	  println 'outChannel0   ' + i
+	  println 'outChannel1   ' + i 
     }
   }
 }
