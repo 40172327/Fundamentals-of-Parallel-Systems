@@ -11,7 +11,7 @@ class QConsumer implements CSProcess {
 	
   def ChannelOutput get
   def ChannelInput receive  
-  def long delay = 0 
+  def long delay = 0
    
   void run () {
     def timer = new CSTimer()

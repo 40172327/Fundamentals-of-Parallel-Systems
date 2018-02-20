@@ -11,7 +11,7 @@ class QProducer implements CSProcess {
 	 
   def ChannelOutput put
   def int iterations = 100
-  def delay = 0  
+  def delay = 0
   
   void run () {
 	def timer = new CSTimer()

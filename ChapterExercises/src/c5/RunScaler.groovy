@@ -12,6 +12,7 @@ def scaledData = Channel.createOne2One()
 def oldScale = Channel.createOne2One()
 def newScale = Channel.createOne2One()
 def pause = Channel.createOne2One()
+///MY VERSION/////
 
 def network = [ new GNumbers ( outChannel: data.out() ),
                 new GFixedDelay ( delay: 1000, 
