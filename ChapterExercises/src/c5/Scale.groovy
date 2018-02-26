@@ -7,7 +7,7 @@ import c05.ScaledData
 class Scale implements CSProcess {
 	def int scaling
 	def int multiplier = 2
-
+	
 	def ChannelOutput outChannel
 	def ChannelOutput factor
 	def ChannelInput inChannel
@@ -16,7 +16,7 @@ class Scale implements CSProcess {
 
 	void run () {
 		def SECOND = 1000
-		def DOUBLE_INTERVAL = 5* SECOND
+		def DOUBLE_INTERVAL = 5 * SECOND
 		def SUSPEND  = 0
 		def INJECT   = 1
 		def TIMER    = 2
@@ -29,29 +29,27 @@ class Scale implements CSProcess {
 			timer,
 			inChannel ]
 		)
+
 		def preCon = new boolean [4]
 		preCon[SUSPEND] = true
 		preCon[INJECT] = false
 		preCon[TIMER] = true
 		preCon[INPUT] = true
 		def suspended = false
+
 		def timeout = timer.read() + DOUBLE_INTERVAL
 		timer.setAlarm ( timeout )
-		////////MY VERSION//////////
+
 		while (true) {
 			switch ( scaleAlt.priSelect(preCon) ) {
-				
 				case SUSPEND :
 				//  deal with suspend input
 					println "Suspended"
-					suspend.read() // its a signal, no data content
+					suspend.read()          // its a signal, no data content
 					factor.write(scaling)
 					preCon[INJECT] = true
-					preCon[SUSPEND]= false 
-					preCon[TIMER] = false
-					
+					preCon[SUSPEND] = false
 					break
-				
 				case INJECT:
 				//  deal with inject input
 					scaling = injector.read()   //this is the resume signal as well
@@ -59,27 +57,28 @@ class Scale implements CSProcess {
 					timeout = timer.read() + DOUBLE_INTERVAL
 					timer.setAlarm ( timeout )
 					preCon[SUSPEND] = true
-					preCon[TIMER] = true
-						
-					preCon[INJECT] = false
 					break
+
 
 				case TIMER:
+				//  deal with Timer input
 					timeout = timer.read() + DOUBLE_INTERVAL
 					timer.setAlarm ( timeout )
-					scaling = scaling * multiplier	
-					println "Normal Timer: new scaling is $scaling"	
+					scaling = scaling * multiplier
+					println "Normal Timer: new scaling is $scaling"
 					break
-
 				case INPUT:
-					def inValue = inChannel.read()
-					def result = new ScaledData()
-					result.original = inValue
+				def inValue = inChannel.read()
+				def result = new ScaledData()
+				result.original = inValue
 				//   deal with Input channel
 					if (preCon[SUSPEND]) {
-						result.scaled = inValue *scaling
+						
+						result.scaled = inValue * scaling
+						
+						
 					} else {
-						result.scaled = inValue 		
+						result.scaled = inValue	
 					}
 					outChannel.write ( result )
 					break

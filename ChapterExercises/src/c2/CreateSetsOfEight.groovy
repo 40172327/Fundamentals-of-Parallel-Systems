@@ -13,7 +13,6 @@ class CreateSetsOfEight implements CSProcess{
 			def outList = []
 			for ( i in 0 ..  var) {
 				// put v into outList and read next input
-				
 				outList.add(v)
 				v = inChannel.read()	
 			}
