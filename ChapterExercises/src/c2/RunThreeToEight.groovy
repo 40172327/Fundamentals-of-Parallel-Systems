@@ -11,4 +11,6 @@ def processList = [ new GenerateSetsOfThree ( outChannel: connect1.out() ),
                     		           outChannel: connect2.out() ),
                     new CreateSetsOfEight ( inChannel: connect2.in() )
                   ]
+				  
+				
 new PAR (processList).run()
