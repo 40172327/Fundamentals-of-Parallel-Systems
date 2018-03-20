@@ -16,9 +16,9 @@ class UserInterface implements CSProcess {
   def ChannelOutput buttonEvent
   
   void run() {
-    def root = new ActiveClosingFrame ("Brownian Motion Particle System")
+    def root = new ActiveClosingFrame ("Scaling")
     def mainFrame = root.getActiveFrame()
-    def tempLabel = new Label ("Temperature")
+    def tempLabel = new Label ("Scaling Factor")
     def tempValue = new ActiveLabel (tempValueConfig)
     tempValue.setAlignment( Label.CENTER)
     def upButton = new ActiveButton (null, buttonEvent, "Up")

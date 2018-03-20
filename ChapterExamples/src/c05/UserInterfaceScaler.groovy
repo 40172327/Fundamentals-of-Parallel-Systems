@@ -7,7 +7,7 @@ import jcsp.lang.*
 import jcsp.awt.*
 import java.awt.*
 
-class UserInterface implements CSProcess {
+class UserInterfaceScaler implements CSProcess {
 	
   def ActiveCanvas particleCanvas
   def int canvasSize
