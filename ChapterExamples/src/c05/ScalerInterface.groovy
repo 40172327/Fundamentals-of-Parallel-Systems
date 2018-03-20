@@ -23,7 +23,7 @@ class ScalerInterface implements CSProcess {
     def tempConfig = Channel.one2one()
     def pauseConfig = Channel.one2one()
     def uiEvents = Channel.any2one( new OverWriteOldestBuffer(5) )
-    def network = [ new ParticleManager ( fromParticles: inChannel, 
+    def network = [ new ScalarManager ( fromParticles: inChannel, 
                                           toParticles: outChannel,
                                           toUI: dList,
                                           fromUIButtons: uiEvents.in(),
