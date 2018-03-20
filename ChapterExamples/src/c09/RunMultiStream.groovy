@@ -24,7 +24,9 @@ def sourcesList = ( 0 ..< sources).collect { i ->
             }
 
 def eventProcess = new EventProcessing ( eventStreams: eventsList,
-                                          minTime: 10,
-                                          maxTime: 400 )
+	//10
+                                          minTime: 1000, 
+										  //400 
+                                          maxTime: 4000)
 
 new PAR( sourcesList + eventProcess).run()
