@@ -12,30 +12,23 @@ class ScalerInterface implements CSProcess {
   def ChannelInput inChannel
   def ChannelOutput outChannel
   def int canvasSize = 100
-  def int particles
-  def int centre
-  def int initialTemp
   
   void run() {
     def dList = new DisplayList()
-    def particleCanvas = new ActiveCanvas()
-    particleCanvas.setPaintable (dList)
+    def scalarCanvas = new ActiveCanvas()
+    scalarCanvas.setPaintable (dList)
     def tempConfig = Channel.one2one()
     def pauseConfig = Channel.one2one()
     def uiEvents = Channel.any2one( new OverWriteOldestBuffer(5) )
-    def network = [ new ScalarManager ( fromParticles: inChannel, 
-                                          toParticles: outChannel,
+    def network = [ new ScalarManager ( fromScalar: inChannel, 
+                                          toScalar: outChannel,
                                           toUI: dList,
                                           fromUIButtons: uiEvents.in(),
                                           toUIPause: pauseConfig.out(),
                                           toUILabel: tempConfig.out(),
-                                          CANVASSIZE: canvasSize,
-                                          PARTICLES: particles,
-                                          CENTRE: centre,
-                                          START_TEMP: initialTemp ),
-                    new UserInterfaceScaler   ( particleCanvas: particleCanvas, 
+                                           ),
+                    new UserInterfaceScaler   ( scalarCanvas: scalarCanvas, 
                                           canvasSize: canvasSize,
-                                          tempValueConfig: tempConfig.in(),
                                           pauseButtonConfig: pauseConfig.in(),
                                           buttonEvent: uiEvents.out()  )
                   ]

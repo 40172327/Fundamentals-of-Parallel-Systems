@@ -9,35 +9,32 @@ import java.awt.*
 
 class UserInterfaceScaler implements CSProcess {
 	
-  def ActiveCanvas particleCanvas
+  def ActiveCanvas scalarCanvas
   def int canvasSize
-  def ChannelInput tempValueConfig
+  def ChannelInput scalarValueConfig
   def ChannelInput pauseButtonConfig
   def ChannelOutput buttonEvent
   
   void run() {
-    def root = new ActiveClosingFrame ("Brownian Motion Particle System")
+    def root = new ActiveClosingFrame ("Scaling System")
     def mainFrame = root.getActiveFrame()
-    def tempLabel = new Label ("Temperature")
-    def tempValue = new ActiveLabel (tempValueConfig)
-    tempValue.setAlignment( Label.CENTER)
-    def upButton = new ActiveButton (null, buttonEvent, "Up")
-    def downButton = new ActiveButton (null, buttonEvent, "Down")
-    def pauseButton = new ActiveButton (pauseButtonConfig, buttonEvent, "START" )
-    def tempContainer = new Container()
-    tempContainer.setLayout ( new GridLayout ( 1, 5 ) )
-    tempContainer.add ( pauseButton )
-    tempContainer.add ( tempLabel )
-    tempContainer.add ( upButton )
-    tempContainer.add ( tempValue )
-    tempContainer.add ( downButton )
+    def scaleLabel = new Label ("Scalar value")
+    def scaleValue = new ActiveLabel (scalarValueConfig)
+    scaleValue.setAlignment( Label.CENTER)
+    def pauseButton = new ActiveButton (pauseButtonConfig, buttonEvent, "PAUSE" )
+    def scalarContainer = new Container()
+    scalarContainer.setLayout ( new GridLayout ( 1, 5 ) )
+    scalarContainer.add ( pauseButton )
+    scalarContainer.add ( scaleLabel )  
+    scalarContainer.add ( scaleValue )
+   
     mainFrame.setLayout( new BorderLayout() )
-    particleCanvas.setSize (canvasSize, canvasSize) 
-    mainFrame.add (particleCanvas, BorderLayout.CENTER)
-    mainFrame.add (tempContainer, BorderLayout.SOUTH)
+    scalarCanvas.setSize (canvasSize, canvasSize) 
+    mainFrame.add (scalarCanvas, BorderLayout.CENTER)
+    mainFrame.add (scalarContainer, BorderLayout.SOUTH)
     mainFrame.pack()
     mainFrame.setVisible ( true )
-    def network = [ root, particleCanvas, tempValue, upButton, downButton, pauseButton ]
+    def network = [ root, scalarCanvas, scaleValue, pauseButton ]
     new PAR (network).run()
   }
 }
